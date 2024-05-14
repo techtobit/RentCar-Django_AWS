@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'auth_user',
     'brands',
     'cars',
+    'boughtCarList',
     "crispy_forms",
     "crispy_bootstrap5",
 
