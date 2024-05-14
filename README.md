@@ -12,15 +12,15 @@ User-Facing Features:
 the user can see the car list with image, price, and can filter cars by brand name. )
 - [x]  (There will be two models: Car Model and Brand Model. Make a relationship between them so that A brand has multiple cars but a car must have only one brand. You can add additional apps/models if you need.)
 - [x] (In the car details page there will be a car image, name, description, quantity,price, brand name and a button named Buy Now will be shown for an authenticated user to buy a product.)
-Anyone can comment on any cars with their name, comment.  
+- [x]  (Anyone can comment on any cars with their name, comment.  )
 #### 2. User Registration and Authentication:
-Implement a user registration and login system.
-User can also edit their profile details
+- [x]  (Implement a user registration and login system.)
+- [x]  (User can also edit their profile details)
 #### 3. Placing Orders:
-An authenticated user can only buy cars. 
-An unauthorized user cannot see the buy now button.
+- [x]  (An authenticated user can only buy cars. )
+- [x]  (An unauthorized user cannot see the buy now button.)
 When an authenticated user clicks the buy now button this item will be purchased by that user and the total quantity of that car will be reduced by one.
 #### 4. Order History:
 In the profile page users can see the bought cars lists.
-N:B : There must be at least 3 class based views.
+- [x]  (There must be at least 3 class based views.)
 
