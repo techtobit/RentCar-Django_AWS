@@ -9,7 +9,7 @@ class CarsFrom(forms.ModelForm):
         widgets={'description':Textarea(attrs={'cols': 3, 'rows': 3})},
 
 
-class CommentFrom(forms.ModelForm):
+class CommentForm(forms.ModelForm):
     class Meta:
         model = Comments
         fields = ['name', 'email', 'body']

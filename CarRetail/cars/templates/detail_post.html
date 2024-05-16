@@ -17,7 +17,13 @@
             </div>
             <p class="card-text">{{object.description }}</p>
             {% if user.is_authenticated %}
-                <button class='btn btn-sm btn-success'>Buy Car</button>
+            <form method="post" action="{% url 'buy_car' object.id %}">
+                {% csrf_token %}
+                <button type="submit" name='buy_now' class="list-group-item d-flex justify-content-between align-items-center">
+                    Buy
+                </button>
+            </form>
+                {% comment %} <button onClick='location.href='{% url 'buy_view' %} class='btn btn-sm btn-success'>Buy Car</button> {% endcomment %}
             {% endif %}
         </div>
     </div>
@@ -39,7 +45,7 @@
             {% csrf_token %}
             {{comment_form | crispy}}
 
-            <button class="btn btn-warning">Submit</button>
+            <button name='add_comment' class="btn btn-warning">Submit</button>
     </div>
 </div>
 </div>

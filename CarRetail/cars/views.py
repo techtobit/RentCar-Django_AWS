@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+import django_tables2 as tables
 from . import forms
-from cars.models import Cars
+from cars.models import Cars, Purchase
 from django.urls import reverse_lazy
 from django.views.generic import CreateView,DetailView
 from django.http import HttpResponseRedirect
@@ -20,7 +21,7 @@ class DetailPostView(DetailView):
     template_name = 'detail_post.html'
 
     def post(self, request, *args, **kwargs):
-        comment_form = forms.CommentFrom(data=self.request.POST)
+        comment_form = forms.CommentForm(data=self.request.POST)
         post = self.get_object()
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
@@ -33,8 +34,36 @@ class DetailPostView(DetailView):
         context = super().get_context_data(**kwargs)
         post = self.object
         comments = post.comments.all()
-        comment_form = forms.CommentFrom()
+        comment_form = forms.CommentForm()
 
         context['comments'] = comments
         context['comment_form'] = comment_form
         return context
+
+def buy_car(request, id):
+    try:
+        car = Cars.objects.get(pk=id)
+    except Cars.DoesNotExist:
+        massages.error(request, 'Car not found')
+        return redirect("home.html")
+    car.save()
+    data = Purchase.objects.create(user=request.user, car =car)
+    # massages.success(request,'Car purchased successfully')
+    return redirect('home')
+
+
+def ProfileView(request):
+    purchaseCar = Purchase.objects.all()
+    car = []
+    for data in purchaseCar:
+        if data.id > 0 : 
+            newArray = Cars.objects.get(pk=data.car.id)
+            car.append(newArray)
+    return render(request, 'profile.html', {'purchaseCar': car})
+    
+
+
+
+# class ProfileView(DetailView):
+#     model = Purchase
+#     template_name = 'profile.html'
