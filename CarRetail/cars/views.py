@@ -46,6 +46,7 @@ def buy_car(request, id):
     except Cars.DoesNotExist:
         massages.error(request, 'Car not found')
         return redirect("home.html")
+    car.reduced_quantity()
     car.save()
     data = Purchase.objects.create(user=request.user, car =car)
     # massages.success(request,'Car purchased successfully')

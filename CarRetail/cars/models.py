@@ -9,6 +9,12 @@ class Cars(models.Model):
     description = models.TextField(max_length=150)
     quantity = models.IntegerField()
     price = models.IntegerField()
+
+    def reduced_quantity(self):
+        if self.quantity > 0:
+            self.quantity -=1
+            self.save()
+
     def __str__(self):
         return f'{self.car_name} - {self.car_brand} | price({self.price})'
 
