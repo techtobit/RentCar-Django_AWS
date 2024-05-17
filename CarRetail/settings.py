@@ -14,6 +14,7 @@ SECRET_KEY = 'django-insecure-xe+vtxj%apa6yinn*x$x5e$yfup(4-1m2j&_wf=lx+=8cdx0&%
 DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
+
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -140,27 +141,27 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Platform.sh settings.
-from platformshconfig import Config
+# from platformshconfig import Config
 
-config = Config()
-if config.is_valid_platform():
-    ALLOWED_HOSTS.append('.platformsh.site')
-    DEBUG = False
+# config = Config()
+# if config.is_valid_platform():
+#     ALLOWED_HOSTS.append('.platformsh.site')
+#     DEBUG = False
 
-    if config.appDir:
-        STATIC_ROOT = Path(config.appDir) / 'static'
-    if config.projectEntropy:
-        SECRET_KEY = config.projectEntropy
+#     if config.appDir:
+#         STATIC_ROOT = Path(config.appDir) / 'static'
+#     if config.projectEntropy:
+#         SECRET_KEY = config.projectEntropy
 
-    if not config.in_build():
-        db_settings = config.credentials('database')
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'NAME': db_settings['path'],
-                'USER': db_settings['username'],
-                'PASSWORD': db_settings['password'],
-                'HOST': db_settings['host'],
-                'PORT': db_settings['port'],
-    },
-}
+#     if not config.in_build():
+#         db_settings = config.credentials('database')
+#         DATABASES = {
+#             'default': {
+#                 'ENGINE': 'django.db.backends.postgresql',
+#                 'NAME': db_settings['path'],
+#                 'USER': db_settings['username'],
+#                 'PASSWORD': db_settings['password'],
+#                 'HOST': db_settings['host'],
+#                 'PORT': db_settings['port'],
+#     },
+# }
