@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "CarRetail/wsgi.py",
+      "src": "CarRetail/asgi.py",
       "use": "@vercel/python",
       "config": {"maxLambdaSize": "15mb", "runtime": "python3.10"}
     },
@@ -17,7 +17,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "CarRetail/wsgi.py"
+      "dest": "CarRetail/asgi.py"
     },
     {
       "src": "/static/(.*)",
