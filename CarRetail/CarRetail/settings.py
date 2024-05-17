@@ -12,7 +12,10 @@ SECRET_KEY = 'django-insecure-xe+vtxj%apa6yinn*x$x5e$yfup(4-1m2j&_wf=lx+=8cdx0&%
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    'localhost',
+    '.vercel.app'
+]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 

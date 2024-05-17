@@ -1,0 +1,13 @@
+{
+	"builds": [{
+			"src": "CarRetail/wsgi.py",
+			"use": "@ardnt/vercel-python-wsgi",
+			"config": { "maxLambdaSize": "15mb" }
+	}],
+	"routes": [
+			{
+					"src": "/(.*)",
+					"dest": "CarRetail/wsgi.py"
+			}
+	]
+}
