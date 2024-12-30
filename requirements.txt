@@ -15,4 +15,5 @@ soupsieve==2.4
 sqlparse==0.4.3
 tzdata==2022.7
 urllib3==1.26.15
-whitenoise==6.4.0
+uvicorn==0.30.6
+whitenoise==6.7.0
